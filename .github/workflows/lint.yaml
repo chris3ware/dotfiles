@@ -1,0 +1,37 @@
+name: Lint
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+
+# Disable permissions for all available scopes
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    permissions:
+      contents: read # Required by the checkout step
+      checks: write # Required for annotations
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false # Change, does trunk v2 need these?
+
+      # Run with the '--all' argument for trunk upgrades to validate the upgrades
+      # do not introduce new issues. This is run in a separate step to keep the
+      # arguments logic simple.
+      - name: Trunk Code Quality Linter Upgrades
+        if: github.head_ref == 'trunk-io/update-trunk'
+        uses: trunk-io/trunk-action@e1234e67a86010d61ddac8d8ebf4b783e2ffd2fa # v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          arguments: --all

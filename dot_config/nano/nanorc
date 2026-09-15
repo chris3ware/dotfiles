@@ -1,0 +1,16 @@
+set linenumbers
+set constantshow
+set guidestripe 120
+set titlecolor white,black
+set numbercolor white,black
+set keycolor brightgreen,black
+set functioncolor brightblue,black
+set statuscolor yellow,black
+set stripecolor red,black
+set promptcolor brightred,black
+set mouse
+include "/opt/homebrew/share/nano/*.nanorc"
+
+#Disable use option as meta key so opt # can be used for headings in markdown
+#Use new binding to comment out lines (This I stands for "ignore". C is used for other things)
+bind ^I comment main

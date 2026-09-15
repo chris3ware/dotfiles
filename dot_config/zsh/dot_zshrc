@@ -1,0 +1,200 @@
+# Keep zsh config out of Copilot terminals
+# https://sourcier.uk/blog/vscode-copilot-terminal-zsh/
+# Requires: "terminal.integrated.env.osx": {"VSCODE_USER_TERMINAL": "1"} in settings.json
+if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
+
+  # Keep at the top to ensure they are loaded and errors further down don't mess things up
+  HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/.zsh_history"
+
+  # Use XDG_STATE_HOME for compinit. Must be set before loading compinit
+  export ZSH_COMPDUMP="${XDG_STATE_HOME:-$HOME/.local/state}/.zcompdump-${ZSH_VERSION}"
+
+  # PATH Additions
+  # brew's bin path is required before loading brew completions to prevent `brew command not found` error in terminal.app
+  export PATH="/opt/homebrew/bin:$PATH" # homebrew's bin path.
+  export PATH="/opt/homebrew/sbin:$PATH" # homebrew's sbin path
+
+  # Add completions for things installed by brew
+  # zsh-znap does all the `compinit` stuff so this line must be above sourcing znap.zsh
+  if (( $+commands[brew] )); then
+    brew_prefix="$(brew --prefix 2>/dev/null)"
+    if [[ -n "$brew_prefix" ]]; then
+      FPATH="${brew_prefix}/share/zsh/site-functions:${FPATH}"
+    fi
+  fi
+  fpath=("$HOME/.config/granted/zsh_autocomplete/assume/" $fpath)
+  fpath=("$HOME/.config/granted/zsh_autocomplete/granted/" $fpath)
+
+  # Download zsh-snap, if it's not there yet
+  [[ -r "${XDG_DATA_HOME:-$HOME/.local/share}/zsh/znap/znap.zsh" ]] ||
+      git clone --depth 1 -- \
+          https://github.com/marlonrichert/zsh-snap.git "${XDG_DATA_HOME:-$HOME/.local/share}/zsh/znap"
+  source "${XDG_DATA_HOME:-$HOME/.local/share}/zsh/znap/znap.zsh" # Start zsh-snap
+
+  # Set znap plugin directory to .cache as this is excluded from backups
+  zstyle ':znap:*' repos-dir "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/znap-plugins"
+
+  # Disable znap git maintenance; `repo = /Users/chris` - this user does not exist in a container or codespace
+  zstyle ':znap:*' git-maintenance off
+
+  # Install p10k prompt
+  znap source romkatv/powerlevel10K
+  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  # Initialization code that may require console input (password prompts, [y/n]
+  # confirmations, etc.) must go above this block; everything else may go below.
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+
+  # Download plugins
+  znap source zdharma-continuum/fast-syntax-highlighting
+  znap source marlonrichert/zsh-autocomplete
+  znap source zsh-users/zsh-autosuggestions
+  znap source jirutka/zsh-shift-select
+  znap source ohmyzsh/ohmyzsh lib/theme-and-appearance
+  znap source ohmyzsh/ohmyzsh plugins/colored-man-pages # tried bat and batman. This is the best one.
+
+  # Set environment variables
+  export COLIMA_SAVE_CONFIG=0 # Use existing lima config on startup; to prevent a git diff
+  # export 1password service account token to allow access to API keys vault from 1password VSCode extension
+  export OP_SERVICE_ACCOUNT_TOKEN=$(security find-generic-password -w -s '1pw-svc-acc-token' -a 'apiKeys')
+
+  # Auto complete for aws cli
+  if (( $+commands[aws_completer] )); then
+    autoload -Uz bashcompinit && bashcompinit
+    complete -C "$(command -v aws_completer)" aws
+  fi
+
+  # zsh-autocomplete key bindings
+  # Use menu-complete instead of menu-select because of the compatibility with zsh-autosuggestions
+  # cspell: disable-next-line
+  # eg cd tofu/raform
+  bindkey '^I' menu-complete # tab through auto complete menu options
+  bindkey "$terminfo[kcbt]" menu-complete
+  bindkey -M menuselect -s '^[' '^G^_' # tell escape to send break and undo
+
+  # Update PATH
+  export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/mise/shims:$PATH" # mise's shims path
+  # Keep PATH and fpath free of duplicates
+  typeset -U path PATH fpath
+
+  # Initialize zoxide (faster directory navigation) using znap-cached eval output
+  if (( $+commands[zoxide] )); then
+    znap eval zoxide 'zoxide init zsh'
+  fi
+
+  # Initialize atuin (intelligent history search) using znap-cached eval output
+  if (( $+commands[atuin] )); then
+    znap eval atuin 'atuin init zsh'
+  fi
+
+  # Aliases
+  alias assume=". assume" # Assuming AWS role with granted
+
+  if (( $+commands[bat] )); then
+    alias cat="bat"
+    if ! bat --list-themes 2>/dev/null | grep -Fqx "gruvbox-material-dark"; then
+      bat cache --build >/dev/null 2>&1
+    fi
+  fi
+
+  alias cz="chezmoi"
+  alias cza="chezmoi apply --use-builtin-age true"
+  alias czd="chezmoi diff --use-builtin-age true"
+  alias czs="chezmoi status --use-builtin-age true"
+  alias ga="git add"
+  alias gap="git add --patch"
+  alias gbD="git branch --delete --force"
+  alias gbd="git branch --delete"
+  alias gbl="git branch --list"
+  alias gc="git commit --verbose"
+  alias gcf="git config --list"
+  alias gd="git diff"
+  alias gdl="git dlog" # dlog is an alias defined in gitconfig that points to difftastic
+  alias glo="git log --oneline --decorate -n 10"
+  alias gp="git push"
+  alias gpf="git push --force-with-lease --force-if-includes"
+  alias grs="git restore --staged"
+  alias gst="git status --short --branch"
+  alias gsw="git switch"
+  alias gswc="git switch --create"
+  alias gswm="git switch main"
+  alias history="history -i" # Show yyyy-mm-dd timestamp
+
+  if (( $+commands[eza] )); then
+    alias ls="eza"
+    alias lsa="ls -all --long --header --git"
+  fi
+
+  alias nano="nano --modernbindings"
+
+  if (( $+commands[gsed] )); then
+    alias sed="gsed" # Use gnu-sed installed via brew
+  fi
+
+  alias tf="tofu"
+  alias tfa="caffeinate -d -i tofu apply"
+  alias tfc="tofu console"
+  alias tfd="tofu destroy"
+  alias tff="tofu fmt"
+  alias tfi="tofu init"
+  alias tfo="tofu output"
+  alias tfp="tofu plan -detailed-exitcode -lock=false"
+  alias tfv="tofu validate"
+  alias tfs="tofu state"
+  alias tfsh="tofu show"
+
+  # Only set this alias inside a git directory to prevent error messages being
+  # displayed in non-git directories
+  if git rev-parse --is-inside-work-tree &> /dev/null
+    then
+      alias cdr="cd $(git rev-parse --show-toplevel)"
+  fi
+
+  # Add shell completions for 1password CLI
+  if (( $+commands[op] )); then
+    znap eval op 'op completion zsh && compdef _op op'
+  fi
+
+  # To customize prompt, run `p10k configure` or edit $ZDOTDIR/.p10k.zsh.
+  # p10k config file should be in $ZDOTDIR
+  # see https://github.com/romkatv/powerlevel10k/issues/137#issuecomment-2607922263
+  [[ ! -f "${ZDOTDIR}/.p10k.zsh" ]] || source "${ZDOTDIR}/.p10k.zsh"
+fi
+
+# Keep XDG environment variables consistent across all shells
+export PATH="$HOME/.local/bin:$PATH" # user executables in XDG bin
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/claude"
+
+export DOCKER_HOST="unix://${XDG_CONFIG_HOME:-$HOME/.config}/colima/docker.sock"
+# De-clutter $HOME by using XDG folders
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/aws/config"
+export AWS_CLI_HISTORY_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/history"
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/credentials"
+export BUILDX_CONFIG="${XDG_DATA_HOME:-$HOME/.local/share}/buildx/" # Store docker buildx data in XDG_DATA
+export COPILOT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/copilot"
+export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker/"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
+# This is required, despite installing less via brew - which supports XDG, because
+# `.lesshst` is still added to $HOME when you pipe commands to more. I shouldn't be doing
+# this, because `bat`, which `cat` is aliased to, pages by default - but old habits die hard
+export LESSHISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/lesshst"
+# Prevents trunk from creating '~/.npm' Trunk upgrade still creates this. DO NOT UPGRADE VIA CLI, use github action
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+# export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/nvm"
+
+# Copilot may need access to tools managed by trunk
+# Add trunk-io shell hooks
+if [[ -f "$HOME/.cache/trunk/shell-hooks/zsh.rc" ]]; then
+  source "$HOME/.cache/trunk/shell-hooks/zsh.rc"
+
+  # Silence trunk's interactive "loading environment" banner while keeping hooks enabled.
+  _trunk_hook() {
+    if (( $+commands[trunk] )); then
+      trap -- '' SIGINT
+      eval "$(trunk shell-hooks zsh 2> >(grep -v '^trunk: loading environment[[:space:]]*$' >&2))"
+      trap - SIGINT
+    fi
+  }
+fi

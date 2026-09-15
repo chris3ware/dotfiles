@@ -1,0 +1,19 @@
+encryption = "age"
+persistentState = "~/.local/state/chezmoi/chezmoistate.boltdb"
+sourceDir = "~/Developer/github.com/chris3ware/dotfiles"
+umask = 0o077
+
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age16k7h5mnwa6zx9h9vpwngc6k53lvwhvyd7e49gg889casl7dnd50s6xggm2"
+
+[diff]
+    command = "difft"
+    exclude = ["scripts"]
+
+[edit]
+    command = "code"
+    args = ["--wait"]
+
+[status]
+    exclude = ["scripts"]

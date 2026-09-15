@@ -1,0 +1,22 @@
+# TODO: remember to update tmutil exclusions if when you switch to macOS container
+
+[settings.github]
+use_git_credentials = true
+
+{{- if eq .chezmoi.hostname "chris3ware-macBookAir" }}
+# Time Machine exclusions. Will prompt for password
+[bootstrap.hooks.post-defaults]
+run = """
+sudo tmutil addexclusion -p ~/.cache
+sudo tmutil addexclusion -p ~/Downloads
+sudo tmutil addexclusion -p ~/.local/share/vagrant/boxes
+sudo tmutil addexclusion -p ~/.config/colima/_lima
+"""
+{{- end }}
+
+# Create symlinks for dotfiles that cannot be stored in the .config directory
+[bootstrap.hooks.final]
+run = """
+[ -L ~/.zshenv ] || ln -s ~/.config/zsh/.zshenv ~/.zshenv
+[ -L ~/.ssh/config ] || ln -s ~/.config/ssh/config ~/.ssh/config
+"""

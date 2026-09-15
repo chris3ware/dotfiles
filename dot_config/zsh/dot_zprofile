@@ -1,0 +1,4 @@
+# Prevent Apple Terminal from saving session data in '~/.zsh_sessions'
+# It's in here because .zprofile is sourced before masOS's '/etc/zshrc_Apple_Terminal'
+# See: https://superuser.com/questions/1610587/disable-zsh-session-folder-completely 
+export SHELL_SESSIONS_DISABLE=1

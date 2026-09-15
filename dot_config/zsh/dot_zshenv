@@ -1,0 +1,4 @@
+# Change zsh's ZDOTDIR to the XDG config directory
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+# ~/.zshenv is symlinked to this file
+# It needs to be in ~/.zshenv because this file is always sourced

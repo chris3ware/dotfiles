@@ -1,0 +1,30 @@
+name: Trunk Upgrade
+
+on:
+  schedule:
+    # On the first day of every month @ 8am
+    - cron: 0 8 1 * *
+  workflow_dispatch: {}
+
+permissions: {}
+
+jobs:
+  trunk-upgrade:
+    permissions:
+      contents: read # Required by checkout step
+      pull-requests: write # To create upgrade PR
+    runs-on: ubuntu-latest
+    steps:
+      # Uses github.token for authentication
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false # Change, does trunk v2 need these?
+
+      - name: Upgrade
+        id: trunk-upgrade
+        uses: trunk-io/trunk-action/upgrade@e1234e67a86010d61ddac8d8ebf4b783e2ffd2fa # v2.0.0
+        with:
+          lowercase-title: true
+          prefix: "ci(trunk): "
+          sign-commits: true

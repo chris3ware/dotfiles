@@ -1,0 +1,54 @@
+version: "0.2"
+suggestionsTimeout: 5000
+language: en-GB
+words:
+  - addexclusion
+  - atuin
+  - boltdb
+  - BUILDX
+  - caffeinate
+  - chezmoi
+  - chezmoidata
+  - chezmoistate
+  - coderabbit
+  - colima
+  - colored
+  - commitlint
+  - COMPDUMP
+  - difft
+  - difftastic
+  - dlog
+  - excludesfile
+  - exitcode
+  - FPATH
+  - GOMODCACHE
+  - GOPATH
+  - gpgsign
+  - gsed
+  - gswc
+  - gswm
+  - infracost
+  - jirutka
+  - kcbt
+  - LESSHISTFILE
+  - lesshst
+  - marlonrichert
+  - menuselect
+  - modernbindings
+  - powerlevel
+  - pswd
+  - romkatv
+  - SCRIPTDIR
+  - shellcheck
+  - shellenv
+  - signingkey
+  - tfsh
+  - tmpl
+  - tmutil
+  - toplevel
+  - USERCONFIG
+  - zcompdump
+  - zdharma
+  - zdiff
+  - ZDOTDIR
+  - znap

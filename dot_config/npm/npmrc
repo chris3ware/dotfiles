@@ -1,0 +1,4 @@
+# This file is used to direct trunk npm to XDG directories
+
+logs-dir = ${HOME}/.local/state/npm
+cache = ${HOME}/.cache/npm

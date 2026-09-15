@@ -1,0 +1,11 @@
+{
+  "trustedtaps": [
+    "alienator88/cask",
+    "busser/tap",
+    "common-fate/granted",
+    "hashicorp/tap",
+    "iann0036/iamlive",
+    "microsoft/git",
+    "minamijoyo/tfupdate"
+  ]
+}
