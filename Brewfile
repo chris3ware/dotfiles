@@ -2,7 +2,6 @@ tap "busser/tap", trusted: true
 tap "common-fate/granted", trusted: true
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "iann0036/iamlive", trusted: true
 tap "microsoft/git", trusted: true
 tap "minamijoyo/tfupdate", trusted: true
 # Run your GitHub Actions locally
@@ -135,6 +134,8 @@ cask "cleanmymac"
 cask "expressvpn"
 cask "font-meslo-for-powerlevel10k"
 cask "font-nunito-sans"
+# Native macOS Virtual Machines for Apple Silicon
+cask "ghostvm"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
 # GitHub notifications on your menu bar
@@ -159,6 +160,8 @@ cask "netnewswire"
 cask "rekordbox"
 # Team communication and collaboration software
 cask "slack"
+# Menu bar utility to name and switch desktop Spaces
+cask "spacejump"
 # Music streaming service
 cask "spotify"
 # Sync and backup service to Synology NAS drives

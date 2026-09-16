@@ -21,6 +21,7 @@ words:
   - excludesfile
   - exitcode
   - FPATH
+  - ghostvm
   - GOMODCACHE
   - GOPATH
   - gpgsign
