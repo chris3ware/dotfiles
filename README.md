@@ -1,14 +1,15 @@
-# chris3ware dotfiles
+# github.com/chris3ware/dotfiles
 
-dotfiles, managed by `chezmoi`, for my machines.
+chris3ware's dotfiles, managed with [chezmoi](https://www.chezmoi.io).
 
-## New Mac Setup
+> [!IMPORTANT]
+> macOS requires Xcode Command Line Tools.
+> Install with: `xcode-select --install` if required
 
-On a new Mac, run:
+Install them with:
 
 ```zsh
-xcode-select --install
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin" -- --persistent-state "$HOME/.local/state/chezmoi/chezmoistate.boltdb" init --source "$HOME/Developer/github.com/chris3ware/dotfiles" --apply chris3ware
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --persistent-state "$HOME/.local/state/chezmoi/chezmoistate.boltdb" --source "$HOME/Developer/github.com/chris3ware/dotfiles" --apply chris3ware
 ```
 
 This command will:
