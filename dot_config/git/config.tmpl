@@ -1,0 +1,41 @@
+[alias]
+    dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+[commit]
+	gpgsign = true
+[core]
+	editor = code --wait
+	excludesfile = {{ .chezmoi.homeDir }}/.config/git/.gitignore_global
+[credential]
+	useHttpPath = true
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[diff]
+    external = difft
+[ghq]
+	root = {{ .chezmoi.homeDir }}/Developer
+[fetch]
+	prune = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+  	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[init]
+	defaultBranch = main
+[merge]
+	conflictStyle = zdiff3
+[pager]
+	branch = false
+[pull]
+	ff = only
+[push]
+	default = simple
+	followTags = true
+	autoSetupRemote = true
+{{- with (get .machines .chezmoi.hostname) }}
+[user]
+    name = {{ .github_username | quote }}
+    email = {{ .github_email | quote }}
+	signingkey = {{ .github_signing_key | quote }}
+{{- end }}

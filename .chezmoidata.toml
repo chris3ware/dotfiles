@@ -1,3 +1,4 @@
-[machines.chris3ware-macBookAir]
+[machines.chris3ware-mac]
 github_username = "chris3ware"
 github_email = "36608309+chris3ware@users.noreply.github.com"
+github_signing_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3p6+ZQWlvmV+/iclNNd8grYgAtC8ht0DwHGAG59T9B"
