@@ -3,16 +3,17 @@
 [settings.github]
 use_git_credentials = true
 
-{{- if eq .chezmoi.hostname "chris3ware-macBookAir" }}
+{{- if eq .chezmoi.hostname "chris3ware-mac" }}
 # Time Machine exclusions. Will prompt for password
 [bootstrap.hooks.post-defaults]
-run = """
-sudo tmutil addexclusion -p ~/.cache
-sudo tmutil addexclusion -p ~/Downloads
-sudo tmutil addexclusion -p ~/.local/share/vagrant/boxes
-sudo tmutil addexclusion -p ~/.config/colima/_lima
-sudo tmutil addexclusion -p ~/Library/Application\ Support/org.ghostvm.GhostVM
-"""
+run = [
+    "sudo tmutil addexclusion -p ~/.cache",
+    "sudo tmutil addexclusion -p ~/.config/colima/_lima",
+    "sudo tmutil addexclusion -p ~/.local/share/vagrant/boxes",
+    "sudo tmutil addexclusion -p ~/Developer/ghostVMs",
+    "sudo tmutil addexclusion -p ~/Downloads",
+    "sudo tmutil addexclusion -p ~/Library/Application\\ Support/org.ghostvm.GhostVM"
+]
 {{- end }}
 
 # Create symlinks for dotfiles that cannot be stored in the .config directory
