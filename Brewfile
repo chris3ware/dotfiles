@@ -1,7 +1,5 @@
 tap "busser/tap", trusted: true
 tap "common-fate/granted", trusted: true
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "microsoft/git", trusted: true
 tap "minamijoyo/tfupdate", trusted: true
 # Run your GitHub Actions locally
@@ -170,8 +168,6 @@ cask "synology-drive"
 cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
-# Video communication and virtual meeting platform
-cask "zoom"
 vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
 vscode "atlassian.atlascode"
