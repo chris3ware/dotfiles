@@ -4,8 +4,11 @@ language: en-GB
 words:
   - addexclusion
   - atuin
+  - Backblaze
   - boltdb
   - BUILDX
+  - bzcli
+  - bzdirfilter
   - caffeinate
   - chezmoi
   - chezmoidata
@@ -18,6 +21,7 @@ words:
   - difft
   - difftastic
   - dlog
+  - excludefiletypes
   - excludesfile
   - exitcode
   - FPATH
@@ -48,6 +52,7 @@ words:
   - tmutil
   - toplevel
   - USERCONFIG
+  - whichfiles
   - zcompdump
   - zdharma
   - zdiff
