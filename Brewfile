@@ -1,5 +1,7 @@
 tap "busser/tap", trusted: true
 tap "common-fate/granted", trusted: true
+tap "homebrew/bundle"
+tap "homebrew/services"
 tap "microsoft/git", trusted: true
 tap "minamijoyo/tfupdate", trusted: true
 # Run your GitHub Actions locally
@@ -42,14 +44,14 @@ brew "docker-credential-helper"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Extremely Fast Compression algorithm
 brew "lz4"
-# General-purpose data compression with high compression ratio
-brew "xz"
 # TIFF library and utilities
 brew "libtiff"
 # Color management engine supporting ICC profiles
@@ -68,6 +70,8 @@ brew "ghq"
 brew "gifsicle"
 # Distributed revision control system
 brew "git"
+# Cinematic Git commit replay tool
+brew "gitlogue"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
 # GNU Transport Layer Security (TLS) Library
@@ -136,8 +140,6 @@ cask "font-nunito-sans"
 cask "ghostvm"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
-# GitHub notifications on your menu bar
-cask "gitify"
 # Backup data from a Synology NAS
 cask "hyperbackupexplorer"
 # Note taking and to-do application with synchronisation capabilities
@@ -168,6 +170,8 @@ cask "synology-drive"
 cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
 vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
 vscode "atlassian.atlascode"
