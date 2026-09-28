@@ -58,6 +58,7 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
   export COLIMA_SAVE_CONFIG=0 # Use existing lima config on startup; to prevent a git diff
   # export 1password service account token to allow access to API keys vault from 1password VSCode extension
   export OP_SERVICE_ACCOUNT_TOKEN=$(security find-generic-password -w -s '1pw-svc-acc-token' -a 'apiKeys')
+  export TF_PLUGIN_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/trunk/terraform.d/plugin-cache"
 
   # Auto complete for aws cli
   if (( $+commands[aws_completer] )); then
