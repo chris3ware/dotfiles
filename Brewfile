@@ -146,8 +146,6 @@ cask "hyperbackupexplorer"
 cask "joplin"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
-# Clipboard manager
-cask "maccy"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
 # Meet, chat, call, and collaborate in just one place
