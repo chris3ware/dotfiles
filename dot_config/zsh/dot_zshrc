@@ -66,6 +66,10 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
     complete -C "$(command -v aws_completer)" aws
   fi
 
+  if (( $+commands[gh] )); then
+    GITHUB_TOKEN="$(gh auth token 2>/dev/null)" && export GITHUB_TOKEN
+  fi
+
   # zsh-autocomplete key bindings
   # Use menu-complete instead of menu-select because of the compatibility with zsh-autosuggestions
   # cspell: disable-next-line
