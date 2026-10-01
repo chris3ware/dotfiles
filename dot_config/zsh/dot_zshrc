@@ -78,19 +78,22 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
   bindkey "$terminfo[kcbt]" menu-complete
   bindkey -M menuselect -s '^[' '^G^_' # tell escape to send break and undo
 
-  # Update PATH
-  export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/mise/shims:$PATH" # mise's shims path
   # Keep PATH and fpath free of duplicates
   typeset -U path PATH fpath
-
-  # Initialize zoxide (faster directory navigation) using znap-cached eval output
-  if (( $+commands[zoxide] )); then
-    znap eval zoxide 'zoxide init zsh'
-  fi
 
   # Initialize atuin (intelligent history search) using znap-cached eval output
   if (( $+commands[atuin] )); then
     znap eval atuin 'atuin init zsh'
+  fi
+
+  # Activate mise to make tools and environment variables set in mise.toml available in the shell
+  if (( $+commands[mise] )); then
+    znap eval mise 'mise activate zsh'
+  fi
+
+  # Initialize zoxide (faster directory navigation) using znap-cached eval output
+  if (( $+commands[zoxide] )); then
+    znap eval zoxide 'zoxide init zsh'
   fi
 
   # Aliases
