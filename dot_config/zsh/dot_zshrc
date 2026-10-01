@@ -180,6 +180,7 @@ export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/aws/config"
 export AWS_CLI_HISTORY_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/history"
 export AWS_SHARED_CREDENTIALS_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/credentials"
 export BUILDX_CONFIG="${XDG_DATA_HOME:-$HOME/.local/share}/buildx/" # Store docker buildx data in XDG_DATA
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo" # Added when contributing to iam-policy-autopilot
 export COPILOT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/copilot"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker/"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
