@@ -98,14 +98,20 @@ brew "leptonica"
 brew "less"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
+# Mac App Store command-line interface
+brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
 # Secure Reliable Transport
 brew "srt"
 # OCR (Optical Character Recognition) engine
@@ -118,6 +124,8 @@ brew "tfsort"
 brew "tlrc"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja"
 # Shell extension to navigate your filesystem faster
@@ -168,8 +176,14 @@ cask "synology-drive"
 cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
-# Video communication and virtual meeting platform
-cask "zoom"
+mas "1Password for Safari", id: 1569813296
+mas "Be Focused", id: 973134470
+mas "Better Resource Monitor", id: 6758237306
+mas "Disk Decipher", id: 516538625
+mas "Noir", id: 1592917505
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
+mas "Wipr", id: 1662217862
 vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
 vscode "atlassian.atlascode"
@@ -178,6 +192,7 @@ vscode "bierner.markdown-mermaid"
 vscode "coderabbit.coderabbit-vscode"
 vscode "fanaticpythoner.better-todo-tree"
 vscode "github.vscode-github-actions"
+vscode "hashicorp.hcl"
 vscode "hverlin.mise-vscode"
 vscode "johnpapa.vscode-peacock"
 vscode "jonathanharty.gruvbox-material-icon-theme"
