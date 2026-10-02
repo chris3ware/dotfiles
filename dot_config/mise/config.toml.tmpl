@@ -18,6 +18,63 @@ run = [
 ]
 {{- end }}
 
+[bootstrap.macos.dock]
+autohide = false
+orientation = "bottom"
+tilesize = 48
+show_recents = false
+
+{{- if eq .chezmoi.hostname "chris3ware-mac" }}
+apps = [
+  "/System/Applications/Mail.app",
+  "/System/Applications/Calendar.app",
+  "/Applications/Safari.app",
+  "/Applications/Visual Studio Code.app",
+  "/Applications/Utilities/Terminal.app",
+  "/System/Applications/Notes.app",
+  "/Applications/Joplin.app",
+  "/Applications/Slack.app",
+  "/System/Applications/Photos.app",
+  "/System/Applications/Reminders.app",
+  "/Applications/Numbers.app",
+  "/Applications/Backblaze Restore.app",
+  "/Applications/HyperBackupExplorer.app",
+  "/Applications/Mixed In Key 11.app",
+  "/Applications/rekordbox 7/rekordbox.app",
+]
+{{- end }}
+
+[bootstrap.macos.finder]
+show_all_files = true
+show_pathbar = true
+preferred_view_style = "list"
+
+[bootstrap.macos.defaults."com.apple.mail"]
+PlayMailSounds = false
+CategoriesEnabledByDefault = false
+ShowCcHeader = true
+ShowBccHeader = true
+NSFont = "HelveticaNeue"
+NSFontSize = 12
+NSFixedPitchFont = "MesloLGS-NF-Regular"
+NSFixedPitchFontSize = 12
+
+[bootstrap.macos.defaults."com.apple.Safari"]
+AutoFillCreditCardData = false
+AutoFillFromiCloudKeychain = false
+AutoFillMiscellaneousForms = false
+AutoFillPasswordsInSafari = false
+PrivateBrowsingRequiresAuthentication = true
+SearchProviderShortName = "Ecosia"
+ShowFavoritesBar-v2 = true
+ShowSiriSuggestionsPreference = false
+WebAutomaticSpellingCorrectionEnabled = false
+WebKitDeveloperExtrasEnabledPreferenceKey = true
+
+[bootstrap.macos.defaults."com.apple.Terminal"]
+"Default Window Settings" = "gruvbox-dark"
+"Startup Window Settings" = "gruvbox-dark"
+
 # Create symlinks for dotfiles that cannot be stored in the .config directory
 [bootstrap.hooks.final]
 run = """

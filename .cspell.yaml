@@ -4,6 +4,7 @@ language: en-GB
 words:
   - addexclusion
   - atuin
+  - autohide
   - Backblaze
   - boltdb
   - BUILDX
@@ -40,8 +41,11 @@ words:
   - marlonrichert
   - menuselect
   - modernbindings
+  - pathbar
   - powerlevel
   - pswd
+  - recents
+  - rekordbox
   - romkatv
   - RUSTUP
   - SCRIPTDIR
@@ -49,6 +53,7 @@ words:
   - shellenv
   - signingkey
   - tfsh
+  - tilesize
   - tmpl
   - tmutil
   - toplevel
