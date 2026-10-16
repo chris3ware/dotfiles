@@ -148,6 +148,8 @@ cask "font-nunito-sans"
 cask "ghostvm"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
+# GitHub notifications on your menu bar
+cask "gitify"
 # Backup data from a Synology NAS
 cask "hyperbackupexplorer"
 # Note taking and to-do application with synchronisation capabilities
@@ -183,6 +185,7 @@ mas "Disk Decipher", id: 516538625
 mas "Noir", id: 1592917505
 mas "Numbers", id: 361304891
 mas "Pages", id: 361309726
+mas "Windows App", id: 1295203466
 mas "Wipr", id: 1662217862
 vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
@@ -192,6 +195,7 @@ vscode "bierner.markdown-mermaid"
 vscode "coderabbit.coderabbit-vscode"
 vscode "fanaticpythoner.better-todo-tree"
 vscode "github.vscode-github-actions"
+vscode "github.vscode-pull-request-github"
 vscode "hashicorp.hcl"
 vscode "hverlin.mise-vscode"
 vscode "johnpapa.vscode-peacock"
