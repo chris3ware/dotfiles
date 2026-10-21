@@ -1,7 +1,13 @@
 #!/bin/sh
 
+{{- if eq .chezmoi.os "darwin" -}}
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if command -v brew >/dev/null 2>&1; then
   export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
   echo "Installing Homebrew packages from Brewfile..."
   brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile"
 fi
+{{- end -}}
