@@ -18,6 +18,7 @@ run = [
 ]
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
 [bootstrap.macos.dock]
 autohide = false
 minimize-to-application = 1
@@ -75,6 +76,7 @@ WebKitDeveloperExtrasEnabledPreferenceKey = true
 [bootstrap.macos.defaults."com.apple.Terminal"]
 "Default Window Settings" = "gruvbox-dark"
 "Startup Window Settings" = "gruvbox-dark"
+{{- end }}
 
 # Create symlinks for dotfiles that cannot be stored in the .config directory
 [bootstrap.hooks.final]
