@@ -2,3 +2,8 @@
 github_username = "chris3ware"
 github_email = "36608309+chris3ware@users.noreply.github.com"
 github_signing_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3p6+ZQWlvmV+/iclNNd8grYgAtC8ht0DwHGAG59T9B"
+
+[machines.chrisaltus-mac]
+github_username = "chrish-altus"
+github_email = "344820538+chrish-altus@users.noreply.github.com"
+github_signing_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhmQs8J2xONCmNYU4smCFDmNH43veTY+8P1H6fC1hcf"
