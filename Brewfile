@@ -22,8 +22,6 @@ brew "bat"
 brew "glib"
 # Vector graphics library with cross-device output support
 brew "cairo"
-# Manage your dotfiles across multiple diverse machines, securely
-brew "chezmoi"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
 # GNU File, Shell, and Text utilities
@@ -102,6 +100,8 @@ brew "libass"
 brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Deep clean and optimize your Mac
+brew "mole"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # Tools for one-time password authentication systems
@@ -191,13 +191,13 @@ vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
 vscode "atlassian.atlascode"
 vscode "bierner.emojisense"
-vscode "bierner.markdown-mermaid"
 vscode "coderabbit.coderabbit-vscode"
 vscode "fanaticpythoner.better-todo-tree"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "hashicorp.hcl"
 vscode "hverlin.mise-vscode"
+vscode "ibm.output-colorizer"
 vscode "johnpapa.vscode-peacock"
 vscode "jonathanharty.gruvbox-material-icon-theme"
 vscode "joshbolduc.commitlint"
