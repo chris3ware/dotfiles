@@ -19,7 +19,6 @@ success() {
   printf "${GREEN}[OK]${NC} %s\n" "$*"
 }
 
-{{- if eq .chezmoi.os "darwin" }}
 info "Checking for Homebrew..."
 if command -v brew >/dev/null 2>&1; then
   success "Homebrew is already installed."
@@ -29,6 +28,3 @@ else
   /bin/bash -c "${installer}"
   success "Homebrew installation complete."
 fi
-{{- else }}
-info "Homebrew setup skipped on non-macOS."
-{{- end }}

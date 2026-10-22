@@ -1,0 +1,4 @@
+{{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/10-install-homebrew.sh
+.chezmoiscripts/20-install-packages.sh
+{{- end }}

@@ -19,7 +19,6 @@ success() {
   printf "${GREEN}[OK]${NC} %s\n" "$*"
 }
 
-{{- if eq .chezmoi.os "darwin" }}
 if [ -x /opt/homebrew/bin/brew ]; then
   brew_env="$(/opt/homebrew/bin/brew shellenv)"
   eval "${brew_env}"
@@ -27,9 +26,6 @@ if [ -x /opt/homebrew/bin/brew ]; then
   # Make sure any configuration files created on package installation respect XDG_CONFIG_HOME
   export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
   install "packages from Brewfile..."
-  brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile"
+  brew bundle --file="${HOME}/Developer/github.com/chris3ware/dotfiles/Brewfile"
   success "Homebrew packages installed."
 fi
-{{- else }}
-info "Homebrew package installation skipped on non-macOS."
-{{- end }}

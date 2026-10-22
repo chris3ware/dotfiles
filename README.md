@@ -3,7 +3,7 @@
 chris3ware's dotfiles, managed with [chezmoi](https://www.chezmoi.io).
 
 > [!TIP]
-> Add machines configuration in `.chezmoidata.toml`. Update the hostname if desired prior to installation
+> Add machines configuration in `home/.chezmoidata.toml`. Update the hostname if desired prior to installation
 
 Install them with:
 
