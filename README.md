@@ -2,17 +2,16 @@
 
 chris3ware's dotfiles, managed with [chezmoi](https://www.chezmoi.io).
 
-> [!IMPORTANT]
-> macOS requires Xcode Command Line Tools.
-> Install with: `xcode-select --install` if required
+> [!TIP]
+> Add machines configuration in `.chezmoidata.toml`. Update the hostname if desired prior to installation
 
 Install them with:
 
 ```zsh
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --persistent-state "$HOME/.local/state/chezmoi/chezmoistate.boltdb" --source "$HOME/Developer/github.com/chris3ware/dotfiles" --apply chris3ware
+curl -fsLS https://raw.githubusercontent.com/chris3ware/dotfiles/main/install.sh | sh
 ```
 
-This command will:
+This command will will run `install.sh` which will:
 
 1. Download `chezmoi` to `~/.local/bin`
 2. Clone this repository to `~/Developer/github.com/chris3ware/dotfiles` via HTTPS
