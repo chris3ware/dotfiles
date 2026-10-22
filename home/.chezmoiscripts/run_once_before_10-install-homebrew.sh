@@ -23,7 +23,7 @@ info "Checking for Homebrew..."
 if command -v brew >/dev/null 2>&1; then
   success "Homebrew is already installed."
 else
-  install "Homebrew..."
+  install "Installing Homebrew..."
   installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   /bin/bash -c "${installer}"
   success "Homebrew installation complete."

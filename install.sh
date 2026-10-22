@@ -26,7 +26,7 @@ if [ "${os}" = "Darwin" ]; then
   if xcode-select -p >/dev/null 2>&1; then
     success "Xcode Command Line Tools are installed."
   else
-    install "Xcode Command Line Tools..."
+    install "Installing Xcode Command Line Tools..."
     xcode-select --install >/dev/null 2>&1
     while ! xcode-select -p >/dev/null 2>&1; do
       sleep 5

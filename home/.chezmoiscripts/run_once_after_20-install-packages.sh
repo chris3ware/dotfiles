@@ -25,7 +25,7 @@ if [ -x /opt/homebrew/bin/brew ]; then
   info "Homebrew environment configured."
   # Make sure any configuration files created on package installation respect XDG_CONFIG_HOME
   export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
-  install "packages from Brewfile..."
+  install "Installing packages from Brewfile..."
   brew bundle --file="${HOME}/Developer/github.com/chris3ware/dotfiles/Brewfile"
   success "Homebrew packages installed."
 fi
