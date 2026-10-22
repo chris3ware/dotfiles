@@ -36,8 +36,9 @@ if [ "${os}" = "Darwin" ]; then
 fi
 
 info "Installing chezmoi and applying dotfiles; you will be prompted for the age passphrase..."
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init \
+installer="$(curl -fsLS get.chezmoi.io/lb)"
+sh -c "${installer}" -- init \
   --persistent-state "${HOME}/.local/state/chezmoi/chezmoistate.boltdb" \
   --source "${HOME}/Developer/github.com/chris3ware/dotfiles" \
-  --apply chris3ware || true
+  --apply chris3ware
 success "Dotfiles initialized and applied."

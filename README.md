@@ -8,10 +8,10 @@ chris3ware's dotfiles, managed with [chezmoi](https://www.chezmoi.io).
 Install them with:
 
 ```zsh
-curl -fsLS https://raw.githubusercontent.com/chris3ware/dotfiles/main/install.sh | sh
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/chris3ware/dotfiles/main/install.sh)"
 ```
 
-This command will will run `install.sh` which will:
+This command will run `install.sh` which will:
 
 1. Download `chezmoi` to `~/.local/bin`
 2. Clone this repository to `~/Developer/github.com/chris3ware/dotfiles` via HTTPS

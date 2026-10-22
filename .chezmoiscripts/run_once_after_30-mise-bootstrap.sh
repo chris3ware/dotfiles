@@ -30,6 +30,12 @@ warn() {
   printf "${YELLOW}[WARN]${NC} %s\n" "$*"
 }
 
+# Each chezmoi script is its own process; Homebrew's PATH is not inherited so must be set explicitly.
+if [ -x /opt/homebrew/bin/brew ]; then
+  brew_env="$(/opt/homebrew/bin/brew shellenv)"
+  eval "${brew_env}"
+fi
+
 info "Checking mise..."
 if command -v mise >/dev/null 2>&1; then
   install "Running mise bootstrap..."

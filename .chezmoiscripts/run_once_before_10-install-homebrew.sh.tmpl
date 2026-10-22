@@ -25,7 +25,8 @@ if command -v brew >/dev/null 2>&1; then
   success "Homebrew is already installed."
 else
   install "Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "${installer}"
   success "Homebrew installation complete."
 fi
 {{- else }}
