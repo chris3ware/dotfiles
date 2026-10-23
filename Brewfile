@@ -1,9 +1,6 @@
+# Reference only; chezmoi installs from home/.chezmoidata/packages.yaml. Personal apps here are installed manually.
 tap "busser/tap", trusted: true
 tap "common-fate/granted", trusted: true
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "microsoft/git", trusted: true
-tap "minamijoyo/tfupdate", trusted: true
 # Run your GitHub Actions locally
 brew "act"
 # Codec library for encoding and decoding AV1 video streams
