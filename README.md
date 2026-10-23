@@ -17,4 +17,4 @@ This command will run `install.sh` which will:
 2. Clone this repository to `~/Developer/github.com/chris3ware/dotfiles` via HTTPS
 3. Prompt for `age` passphrase to decrypt protected files
 4. Store chezmoi state in `~/.local/state/chezmoi/chezmoistate.boltdb`
-5. Apply dotfiles, install Homebrew packages via `Brewfile` and run `mise bootstrap`
+5. Apply dotfiles, install the minimal Homebrew packages and casks needed for the terminal to look and behave as expected (listed in `home/.chezmoidata/packages.yaml`) and run `mise bootstrap`

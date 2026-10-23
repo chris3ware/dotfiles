@@ -1,0 +1,29 @@
+packages:
+  darwin:
+    brews:
+      - atuin
+      - bash
+      - bat
+      - coreutils
+      - difftastic
+      - eza
+      - fd
+      - fzf
+      - gh
+      - ghq
+      - git
+      - gnu-sed
+      - jq
+      - less
+      - mise
+      - nano
+      - ripgrep
+      - tree
+      - zoxide
+    casks:
+      - 1password
+      - 1password-cli
+      - font-meslo-for-powerlevel10k
+      - font-nunito-sans
+      - git-credential-manager
+      - gitify

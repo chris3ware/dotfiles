@@ -28,6 +28,7 @@ words:
   - exitcode
   - FPATH
   - ghostvm
+  - gitify
   - GOMODCACHE
   - GOPATH
   - gpgsign
@@ -41,7 +42,9 @@ words:
   - lesshst
   - marlonrichert
   - menuselect
+  - meslo
   - modernbindings
+  - nunito
   - pathbar
   - powerlevel
   - pswd
