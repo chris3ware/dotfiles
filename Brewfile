@@ -1,4 +1,3 @@
-# Reference only; chezmoi installs from home/.chezmoidata/packages.yaml. Personal apps here are installed manually.
 tap "busser/tap", trusted: true
 tap "common-fate/granted", trusted: true
 # Run your GitHub Actions locally
@@ -57,8 +56,6 @@ brew "jpeg-xl"
 brew "gd"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
-# GitHub command-line tool
-brew "gh"
 # Remote repository management made easy
 brew "ghq"
 # GIF image/animation creator/editor

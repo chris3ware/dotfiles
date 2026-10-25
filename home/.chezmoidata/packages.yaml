@@ -9,7 +9,6 @@ packages:
       - eza
       - fd
       - fzf
-      - gh
       - ghq
       - git
       - gnu-sed
