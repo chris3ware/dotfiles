@@ -87,8 +87,9 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
   fi
 
   # Activate mise to make tools and environment variables set in mise.toml available in the shell
+  # Not cached via znap: the activate output embeds the current PATH and goes stale
   if (( $+commands[mise] )); then
-    znap eval mise 'mise activate zsh'
+    eval "$(mise activate zsh)"
   fi
 
   # Initialize zoxide (faster directory navigation) using znap-cached eval output
