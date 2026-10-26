@@ -16,8 +16,8 @@ jobs:
   trunk-upgrade:
     name: Trunk Upgrade
     permissions:
-      contents: read # Required by checkout step
-      pull-requests: write # To create upgrade PR
+      contents: write # For trunk to create PRs
+      pull-requests: write # For trunk to create PRs
     runs-on: ubuntu-latest
     steps:
       # Uses github.token for authentication
