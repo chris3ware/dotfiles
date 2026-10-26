@@ -100,8 +100,6 @@ brew "mole"
 brew "nano"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
-# Framework for managing multi-language pre-commit hooks
-brew "pre-commit"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Rust toolchain installer
