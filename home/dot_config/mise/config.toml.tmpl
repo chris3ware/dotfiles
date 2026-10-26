@@ -20,8 +20,7 @@ run = [
 
 {{- if eq .chezmoi.os "darwin" }}
 [bootstrap.macos.dock]
-autohide = false
-minimize-to-application = 1
+autohide = true
 orientation = "bottom"
 show_recents = false
 tilesize = 43
@@ -32,19 +31,22 @@ apps = [
   "/System/Applications/Calendar.app",
   "/Applications/Safari.app",
   "/Applications/Visual Studio Code.app",
-  "/Applications/Utilities/Terminal.app",
+  "/System/Applications/Utilities/Terminal.app",
   "/System/Applications/Notes.app",
   "/Applications/Joplin.app",
   "/Applications/Slack.app",
   "/System/Applications/Photos.app",
   "/System/Applications/Reminders.app",
-  "/Applications/Numbers.app",
-  "/Applications/Backblaze Restore.app",
+  "/Applications/Numbers Creator Studio.app",
+  "/Applications/BackblazeRestore.app",
   "/Applications/HyperBackupExplorer.app",
   "/Applications/Mixed In Key 11.app",
   "/Applications/rekordbox 7/rekordbox.app",
 ]
 {{- end }}
+
+[bootstrap.macos.defaults."com.apple.dock"]
+"minimize-to-application" = true
 
 [bootstrap.macos.finder]
 show_all_files = true
