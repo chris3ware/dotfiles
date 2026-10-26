@@ -29,12 +29,12 @@ if [ -x /opt/homebrew/bin/brew ]; then
   install "Installing packages from packages.yaml..."
   # Rendered from .chezmoidata/packages.yaml, so editing the lists re-runs this script.
   brew bundle --file=/dev/stdin <<EOF
-    {{ range .packages.darwin.brews -}}
-    brew {{ . | quote }}
-    {{ end -}}
-    {{ range .packages.darwin.casks -}}
-    cask {{ . | quote }}
-    {{ end -}}
+  {{ range .packages.darwin.brews -}}
+  brew {{ . | quote }}
+  {{ end -}}
+  {{ range .packages.darwin.casks -}}
+  cask {{ . | quote }}
+  {{ end }}
 EOF
   success "Homebrew packages installed."
 fi
