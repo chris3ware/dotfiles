@@ -17,7 +17,12 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  disabled:
+    # Disabled. No longer required because gh actions-lock handles pinning verification
+    - pinact
   enabled:
+    - cspell@10.4.0
+    - zizmor@1.30.1
     - actionlint@1.7.12
     - shfmt@3.6.0
     - shellcheck@0.11.0
@@ -28,6 +33,12 @@ lint:
     - taplo@0.9.3
     - trufflehog@3.88.29
     - yamllint@1.37.1
+  definitions:
+    - name: zizmor
+      commands:
+        # Set to pedantic so that zizmor will run its stale-action-refs audit rule
+        - name: lint
+          run: zizmor --format=sarif --persona=pedantic ${target}
 actions:
   enabled:
     - commitlint
