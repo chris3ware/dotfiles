@@ -140,8 +140,10 @@ cask "font-nunito-sans"
 cask "ghostvm"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
-# GitHub notifications on your menu bar
+# Git notifications on your menu bar
 cask "gitify"
+# Utility to hide menu bar items
+cask "hiddenbar"
 # Backup data from a Synology NAS
 cask "hyperbackupexplorer"
 # Note taking and to-do application with synchronisation capabilities
@@ -166,8 +168,6 @@ cask "spacejump"
 cask "spotify"
 # Sync and backup service to Synology NAS drives
 cask "synology-drive"
-# Menu bar manager
-cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
 mas "1Password for Safari", id: 1569813296
