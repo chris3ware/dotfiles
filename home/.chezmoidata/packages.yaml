@@ -18,6 +18,8 @@ packages:
       - nano
       - ripgrep
       - tree
+      # Required for mise completions
+      - usage
       - zoxide
     casks:
       - 1password
