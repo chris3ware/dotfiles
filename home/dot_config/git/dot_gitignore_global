@@ -21,3 +21,6 @@
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# .todo files I use to keep track of long-term tasks
+.todo
