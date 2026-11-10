@@ -116,6 +116,8 @@ brew "tfsort"
 brew "tlrc"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Tool for working with usage-spec CLIs
+brew "usage"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Check your $HOME for unwanted files and directories
@@ -183,6 +185,7 @@ vscode "1password.op-vscode"
 vscode "aaron-bond.better-comments"
 vscode "atlassian.atlascode"
 vscode "bierner.emojisense"
+vscode "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
 vscode "coderabbit.coderabbit-vscode"
 vscode "fanaticpythoner.better-todo-tree"
 vscode "github.vscode-github-actions"
