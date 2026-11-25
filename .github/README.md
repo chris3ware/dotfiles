@@ -5,7 +5,11 @@ chris3ware's dotfiles, managed with [chezmoi](https://www.chezmoi.io).
 > [!TIP]
 > Add machines configuration in `home/.chezmoidata.toml`. Update the hostname if desired prior to installation
 
-Install them with:
+## Requirements
+
+- Terminal needs full disk access
+
+## Install
 
 ```zsh
 sh -c "$(curl -fsLS https://raw.githubusercontent.com/chris3ware/dotfiles/main/install.sh)"
