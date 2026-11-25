@@ -183,6 +183,8 @@ export DOCKER_HOST="unix://${XDG_CONFIG_HOME:-$HOME/.config}/colima/docker.sock"
 # De-clutter $HOME by using XDG folders
 export APM_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/apm"
 export APM_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/apm"
+export ATUIN_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/atuin"
+export ATUIN_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/atuin"
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/aws/config"
 export AWS_CLI_HISTORY_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/history"
 export AWS_SHARED_CREDENTIALS_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/aws/credentials"
