@@ -22,8 +22,6 @@ packages:
       - usage
       - zoxide
     casks:
-      - 1password
-      - 1password-cli
       - font-meslo-for-powerlevel10k
       - font-nunito-sans
       - git-credential-manager

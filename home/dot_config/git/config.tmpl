@@ -1,7 +1,9 @@
 [alias]
     dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+{{- if eq .chezmoi.hostname "chris3ware-mac" }}
 [commit]
 	gpgsign = true
+{{- end }}
 [core]
 	editor = code --wait
 	excludesfile = {{ .chezmoi.homeDir }}/.config/git/.gitignore_global
@@ -17,10 +19,12 @@
 	root = {{ .chezmoi.homeDir }}/Developer
 [fetch]
 	prune = true
+{{- if eq .chezmoi.hostname "chris3ware-mac" }}
 [gpg]
 	format = ssh
 [gpg "ssh"]
   	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
 [init]
 	defaultBranch = main
 [merge]
