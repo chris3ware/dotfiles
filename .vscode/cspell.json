@@ -13,6 +13,8 @@
     "atuin",
     "autohide",
     "Backblaze",
+    "bashcompinit",
+    "bindkey",
     "boltdb",
     "BUILDX",
     "bzcli",
@@ -27,7 +29,9 @@
     "colima",
     "colored",
     "commitlint",
+    "compdef",
     "COMPDUMP",
+    "compinit",
     "creds",
     "difft",
     "difftastic",
@@ -45,6 +49,7 @@
     "gswc",
     "gswm",
     "Harrisons",
+    "HISTFILE",
     "infracost",
     "jirutka",
     "kcbt",
@@ -55,6 +60,7 @@
     "meslo",
     "modernbindings",
     "nunito",
+    "oneline",
     "osxkeychain",
     "pathbar",
     "pinact",
@@ -69,6 +75,7 @@
     "shellcheck",
     "shellenv",
     "signingkey",
+    "terminfo",
     "tfsh",
     "tilesize",
     "tmpl",
@@ -81,6 +88,7 @@
     "zdiff",
     "ZDOTDIR",
     "zizmor",
-    "znap"
+    "znap",
+    "zstyle"
   ]
 }
