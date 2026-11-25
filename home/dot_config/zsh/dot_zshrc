@@ -114,6 +114,7 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
   alias cza="chezmoi apply --use-builtin-age true"
   alias czd="chezmoi diff --use-builtin-age true"
   alias czs="chezmoi status --use-builtin-age true"
+  alias czu="chezmoi update --use-builtin-age true"
   alias ga="git add"
   alias gap="git add --patch"
   alias gbD="git branch --delete --force"
