@@ -61,6 +61,7 @@ three_finger_drag = false
 PlayMailSounds = false
 CategoriesEnabledByDefault = false
 ShowCcHeader = true
+# cspell:disable-next-line
 NSFont = "HelveticaNeue"
 NSFontSize = 12
 NSFixedPitchFont = "MesloLGS-NF-Regular"
@@ -68,6 +69,7 @@ NSFixedPitchFontSize = 12
 
 [bootstrap.macos.defaults."com.apple.Safari"]
 AutoFillCreditCardData = false
+# cspell:disable-next-line
 AutoFillFromiCloudKeychain = false
 AutoFillMiscellaneousForms = false
 AutoFillPasswordsInSafari = false
@@ -87,5 +89,6 @@ WebKitDeveloperExtrasEnabledPreferenceKey = true
 [bootstrap.hooks.final]
 run = """
 [ -L ~/.zshenv ] || ln -s ~/.config/zsh/.zshenv ~/.zshenv
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
 [ -L ~/.ssh/config ] || ln -s ~/.config/ssh/config ~/.ssh/config
 """
