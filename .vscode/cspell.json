@@ -6,7 +6,8 @@
   "ignorePaths": [
     "BrewFile",
     "home/dot_config/bat/themes/**",
-    "home/dot_config/colima/**"
+    "home/dot_config/colima/**",
+    "home/dot_config/terminal/**"
   ],
   "words": [
     "addexclusion",
