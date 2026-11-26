@@ -69,8 +69,10 @@ if [[ "$TERM_PROGRAM" != "vscode" || -n "$VSCODE_USER_TERMINAL" ]]; then
     complete -C "$(command -v aws_completer)" aws
   fi
 
+  # zizmor requires an authentication token to run online mode.
+  # Use ZIZMOR_GITHUB_TOKEN instead of GITHUB_TOKEN because gh uses GITHUB_TOKEN
   if (( $+commands[gh] )); then
-    GITHUB_TOKEN="$(gh auth token 2>/dev/null)" && export GITHUB_TOKEN
+    ZIZMOR_GITHUB_TOKEN="$(gh auth token 2>/dev/null)" && export ZIZMOR_GITHUB_TOKEN
   fi
 
   # zsh-autocomplete key bindings
